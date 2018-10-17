@@ -74,8 +74,8 @@
                         "master_password": "barbut8chars",
                         "node_type": "dc1.large",
                         "cluster_type": "single-node",
-                        "publicly_accessible":false,
-                        "encrypted":true
+                        "publicly_accessible":true,
+                        "encrypted":false
                     }
                 },
                 "aws_cloudtrail": {
