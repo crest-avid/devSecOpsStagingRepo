@@ -22,7 +22,7 @@ resource "aws_eip" "ip" {
 resource "aws_s3_bucket" "example" {
 
   bucket = "terraform-getting-started-guide"
-  acl    = "private"
+  acl    = "public-write"
 }
 
 resource "aws_s3_bucket" "example2" {
