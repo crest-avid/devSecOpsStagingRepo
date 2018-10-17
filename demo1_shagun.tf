@@ -54,14 +54,14 @@
                 },
                 "aws_iam_account_password_policy": {
                     "strict": {
-                        "allow_users_to_change_password": true,
-                        "minimum_password_length": 16,
-                        "require_lowercase_characters": true,
-                        "require_numbers": true,
-                        "require_symbols": true,
-                        "require_uppercase_characters": true,
-                        "max_password_age": 90,
-                        "password_reuse_prevention":3
+                        "allow_users_to_change_password": false,
+                        "minimum_password_length": 13,
+                        "require_lowercase_characters": false,
+                        "require_numbers": false,
+                        "require_symbols": false,
+                        "require_uppercase_characters": false,
+                        "max_password_age": 900,
+                        "password_reuse_prevention":10
                         
                     }
                 },
@@ -74,8 +74,8 @@
                         "master_password": "barbut8chars",
                         "node_type": "dc1.large",
                         "cluster_type": "single-node",
-                        "publicly_accessible":true,
-                        "encrypted":false
+                        "publicly_accessible":false,
+                        "encrypted":true
                     }
                 },
                 "aws_cloudtrail": {
