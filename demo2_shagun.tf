@@ -184,9 +184,9 @@ resource "aws_redshift_cluster" "default" {
 resource "aws_iam_account_password_policy" "strict" {
   minimum_password_length        = 8
   require_lowercase_characters   = true
-  require_numbers                = false
-  require_uppercase_characters   = false
-  require_symbols                = false
+  require_numbers                = true
+  require_uppercase_characters   = true
+  require_symbols                = true
   allow_users_to_change_password = true
 }
 
@@ -194,14 +194,14 @@ resource "aws_iam_account_password_policy" "strict_2" {
   minimum_password_length        = 8
   require_lowercase_characters   = true
   require_numbers                = true
-  require_uppercase_characters   = false
-  require_symbols                = false
+  require_uppercase_characters   = true
+  require_symbols                = true
   allow_users_to_change_password = true
 }
 
 resource "aws_cloudtrail" "example" {
 
-  is_multi_region_trail = false
+  is_multi_region_trail = true
 
   event_selector {
     read_write_type = "All"

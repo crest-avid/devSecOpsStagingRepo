@@ -43,7 +43,7 @@
         "resource":{
             "aws_s3_bucket": {
                 "example2": {
-                    "acl": "public",
+                    "acl": "private",
                     "bucket": "RW_bucket"
                 },
                 "avidcloudtrailbucket": {
@@ -54,14 +54,14 @@
                 },
                 "aws_iam_account_password_policy": {
                     "strict": {
-                        "allow_users_to_change_password": false,
-                        "minimum_password_length": 13,
+                        "allow_users_to_change_password": true,
+                        "minimum_password_length": 14,
                         "require_lowercase_characters": false,
-                        "require_numbers": false,
-                        "require_symbols": false,
-                        "require_uppercase_characters": false,
-                        "max_password_age": 900,
-                        "password_reuse_prevention":10
+                        "require_numbers": true,
+                        "require_symbols": true,
+                        "require_uppercase_characters": true,
+                        "max_password_age": 90,
+                        "password_reuse_prevention":3
                         
                     }
                 },
