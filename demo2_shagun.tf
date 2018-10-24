@@ -28,7 +28,7 @@ resource "aws_s3_bucket" "example" {
 resource "aws_s3_bucket" "example2" {
 
   bucket = "mah-bucket"
-  acl    = "private"
+  acl    = "public"
 }
 
 resource "aws_lb" "test" {
