@@ -15,7 +15,7 @@ resource "aws_instance" "examplesd" {
 
 #here there
 
-resource "aws_eip" "ip" {
+resource "aws_eip" "ipsd" {
   instance = "${aws_instance.example.id}"
 }
 
