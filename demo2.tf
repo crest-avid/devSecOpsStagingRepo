@@ -4,7 +4,7 @@ provider "aws" {
   region     = "${var.region}"
 }
 
-resource "aws_instance" "examplesd" {
+resource "aws_instance" "example" {
   ami           = "${lookup(var.amis, var.region)}"
   instance_type = "t2.micro"
 
@@ -15,7 +15,7 @@ resource "aws_instance" "examplesd" {
 
 #here there
 
-resource "aws_eip" "ipsd" {
+resource "aws_eip" "ip_now" {
   instance = "${aws_instance.example.id}"
 }
 
@@ -23,6 +23,12 @@ resource "aws_s3_bucket" "example" {
 
   bucket = "terraform-getting-started-guide"
   acl    = "private"
+}
+
+resource "aws_kms_key" "a" {
+  enable_key_rotation = true
+  description             = "KMS key 1"
+  deletion_window_in_days = 10
 }
 
 resource "aws_s3_bucket" "example2" {
@@ -61,6 +67,7 @@ resource "aws_db_instance" "default" {
   username             = "foo"
   password             = "foobarbaz"
   parameter_group_name = "default.mysql5.7"
+  storage_encrypted = true
 }
 
 # Create a new replication instance
@@ -179,29 +186,35 @@ resource "aws_redshift_cluster" "default" {
   master_password    = "Mustbe8characters"
   node_type          = "dc1.large"
   cluster_type       = "single-node"
+  encrypted          = false
+  publicly_accessible = true
 }
 
 resource "aws_iam_account_password_policy" "strict" {
-  minimum_password_length        = 8
-  require_lowercase_characters   = true
+  minimum_password_length        = 13
+  require_lowercase_characters   = false
   require_numbers                = false
   require_uppercase_characters   = false
   require_symbols                = false
   allow_users_to_change_password = true
+  max_password_age               = 90
+  password_reuse_prevention = 3
 }
 
-resource "aws_iam_account_password_policy" "strict_2" {
-  minimum_password_length        = 8
-  require_lowercase_characters   = true
-  require_numbers                = true
-  require_uppercase_characters   = false
-  require_symbols                = false
-  allow_users_to_change_password = true
+resource "aws_ebs_volume" "example" {
+    encrypted = false
+    availability_zone = "us-west-2a"
+    size = 40
+    tags {
+        Name = "HelloWorld"
+    }
 }
+
 
 resource "aws_cloudtrail" "example" {
 
   is_multi_region_trail = false
+  enable_log_file_validation = false
 
   event_selector {
     read_write_type = "All"
