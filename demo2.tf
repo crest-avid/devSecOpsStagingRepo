@@ -4,7 +4,7 @@ provider "aws" {
   region     = "${var.region}"
 }
 
-resource "aws_instance" "example" {
+resource "aws_instance" "examplesd" {
   ami           = "${lookup(var.amis, var.region)}"
   instance_type = "t2.micro"
 
@@ -15,7 +15,7 @@ resource "aws_instance" "example" {
 
 #here there
 
-resource "aws_eip" "ip" {
+resource "aws_eip" "ipsd" {
   instance = "${aws_instance.example.id}"
 }
 

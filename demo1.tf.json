@@ -42,7 +42,7 @@
         },
         "resource":{
             "aws_s3_bucket": {
-                "example4": {
+                "example6": {
                     "acl": "public-write",
                     "bucket": "RW_bucket"
                 },
