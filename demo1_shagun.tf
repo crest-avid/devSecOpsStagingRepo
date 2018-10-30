@@ -58,7 +58,7 @@
                         "minimum_password_length": 14,
                         "require_lowercase_characters": false,
                         "require_numbers": false,
-                        "require_symbols": true,
+                        "require_symbols": false,
                         "require_uppercase_characters": false,
                         "max_password_age": 90,
                         "password_reuse_prevention":3
